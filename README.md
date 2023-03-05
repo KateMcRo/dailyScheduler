@@ -15,7 +15,7 @@ One interesting thing I learned from this project was how to get a sub string so
 
 Add events to the text area and save them using the save button to the right. Time blocks are color coded by past, present, and future.
 
-![Screetshot of Scheduler](assets/ScheduleSS.png)
+![Screetshot of Scheduler](/Assets/ScheduleSS.png)
 
 [Deployed Sheduler](https://katemcro.github.io/dailyScheduler/)
 
