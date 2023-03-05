@@ -13,8 +13,35 @@ $(function () {
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
+
+  // current hour in 24-hour time
+  const currentHour = dayjs().hour()
+  // using jquery to loop over each time-block element
+   $(".time-block").each(function (){
+    // storing each block in a variable
+    const hourEl = $(this)
+    // storing the number portion of id in a string and converting to an interger
+    const hourNum = parseInt($(this).attr("id").substr(5, 2), 10)
+   
+    // comparing values to redefine class to past
+    if (currentHour > hourNum) {
+      hourEl.removeClass("present")
+      hourEl.removeClass("future")
+      hourEl.addClass("past")
+    }
+    // comparing values to redefine class to present
+    if (currentHour === hourNum) {
+      hourEl.removeClass("past")
+      hourEl.removeClass("future")
+      hourEl.addClass("present")
+    }
+    // comparing values to redefine class to future
+    if (currentHour < hourNum) {
+      hourEl.removeClass("present")
+      hourEl.removeClass("past")
+      hourEl.addClass("future")
+    }
+   })
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
